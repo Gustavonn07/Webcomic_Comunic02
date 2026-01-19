@@ -1,5 +1,5 @@
 'use client'
-
+import '@/styles/global.css'
 import MDXWrapper from '@/components/MDXWrapper'
 
 export default function ChapterLayout({
@@ -8,16 +8,18 @@ export default function ChapterLayout({
   children: React.ReactNode
 }) {
   return (
-    <body
-      style={{
-        maxWidth: 720,
-        margin: '0 auto',
-        padding: '2rem',
-        lineHeight: 1.7,
-        fontSize: '1.1rem',
-      }}
-    >
-      <MDXWrapper>{children}</MDXWrapper>
-    </body>
+    <html>
+      <body
+        style={{
+          maxWidth: 720,
+          margin: '0 auto',
+          padding: '2rem',
+          lineHeight: 1.7,
+          fontSize: '1.1rem',
+        }}
+      >
+        <MDXWrapper>{children}</MDXWrapper>
+      </body>
+    </html>
   )
 }
