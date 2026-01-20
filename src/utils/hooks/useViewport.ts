@@ -1,4 +1,6 @@
-import React from "react";
+'use client'
+
+import { useEffect, useState } from 'react'
 
 /**
  * Hook personalizado para obter as dimensões da tela e pontos de breakpoints.
@@ -9,26 +11,27 @@ import React from "react";
 *   isXl: boolean;
 * }} Retorna as dimensões da tela e booleanos indicando os breakpoints.
 */
+
 export const useViewport = () => {
-  const [pageWidth, setPageWidth] = React.useState<number>(window.innerWidth);
-  const [pageHeight, setPageHeight] = React.useState<number>(
-    window.innerHeight
-  );
+  const [pageWidth, setPageWidth] = useState<number | null>(null)
+  const [pageHeight, setPageHeight] = useState<number | null>(null)
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
-      setPageWidth(window.innerWidth);
-      setPageHeight(window.innerHeight);
-    };
+      setPageWidth(window.innerWidth)
+      setPageHeight(window.innerHeight)
+    }
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return {
     pageWidth,
     pageHeight,
-    isSm: pageWidth <= 770,
-    isXl: pageWidth > 770,
-  };
-};
+    isSm: pageWidth !== null && pageWidth <= 770,
+    isXl: pageWidth !== null && pageWidth > 770,
+  }
+}
