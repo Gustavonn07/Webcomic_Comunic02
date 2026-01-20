@@ -1,6 +1,6 @@
 'use client'
 
-import { panels } from './content.mdx'
+import { panels } from './pannels'
 import ComicImage from '@/components/ComicImage'
 import { useState } from 'react'
 
