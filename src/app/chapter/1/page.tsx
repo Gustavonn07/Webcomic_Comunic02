@@ -5,7 +5,7 @@ import ComicImage from '@/components/ComicImage'
 import { useState } from 'react'
 
 export default function Chapter1Page() {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(1)
   const [panel, setPanel] = useState(0)
 
   const change = () => {
@@ -27,9 +27,19 @@ export default function Chapter1Page() {
     setIndex(prev => prev + 1)
   }
 
+  const reverse = (e: React.MouseEvent) => {
+    e.preventDefault()
+
+    if(panel <= 0) return
+
+    setPanel(prev => prev - 1)
+    setIndex(prev => prev - 1)
+  }
+
   return (
     <div
       onClick={change}
+      onContextMenu={reverse}
       className="cursor-pointer select-none"
     >
       <ComicImage {...panels[panel]} />
