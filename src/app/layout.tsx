@@ -7,16 +7,16 @@ export default function ChapterLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const style = {
+    lineHeight: 1.7,
+    fontSize: '1.1rem',
+  }
+
   return (
     <html>
       <body
-        style={{
-          maxWidth: 720,
-          margin: '0 auto',
-          padding: '2rem',
-          lineHeight: 1.7,
-          fontSize: '1.1rem',
-        }}
+        style={style}
       >
         <MDXWrapper>{children}</MDXWrapper>
       </body>
