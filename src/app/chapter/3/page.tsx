@@ -16,7 +16,7 @@ export default function Chapter3Page() {
             className={cn('max-h-400 h-[190vh]')}
         />
 
-        <div className="absolute h-175 w-175 -bottom-5 right-8 overflow-hidden">
+        <div className="absolute h-179 w-179 -bottom-5 right-6 overflow-hidden">
             <ComicVideo
                 src="/chapter-3/volney-molhado.mp4"
                 className="w-full h-full"

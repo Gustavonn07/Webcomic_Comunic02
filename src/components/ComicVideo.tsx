@@ -24,7 +24,7 @@ export default function ComicVideo({
   return (
     <video
       className={cn(
-        'w-full h-full object-contain select-none',
+        'w-full h-full object-contain select-none border-0',
         className
       )}
       src={src}
