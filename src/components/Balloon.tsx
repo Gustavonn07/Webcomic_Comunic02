@@ -1,41 +1,38 @@
 'use client'
 
+import { SourceType, SourceTypes, VariantType } from '@/types/BalloonVariants'
 import { cn } from '@/utils/cn'
-import React, { useState, ReactNode } from 'react'
+import Image from 'next/image'
+import React, { useState } from 'react'
 
 interface BalloonProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: ReactNode
+  variant: VariantType
 }
 
-export default function Balloon({ children, ...props }: BalloonProps) {
-  const [isHovered, setIsHovered] = useState(false)
+export default function Balloon({ variant, className, ...props }: BalloonProps) {
+  const [sourceImageType, setSourceImageType] = useState<SourceType>(
+    SourceTypes.DEFAULT
+  )
 
-  const handleClick = () => {
-    alert("Click");
-  }
-
-  const handleMouseEnter = () => {
-    setIsHovered(true)
-    alert("Hover");
-  }
-
-  const handleMouseLeave = () => {
-    setIsHovered(false)
-  }
+  const imageSrc = `/chapter-2/${variant}-${sourceImageType}.png`
 
   return (
     <div
       {...props}
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onClick={() => setSourceImageType(SourceTypes.CLICK)}
+      onMouseEnter={() => setSourceImageType(SourceTypes.HOVER)}
+      onMouseLeave={() => setSourceImageType(SourceTypes.DEFAULT)}
       className={cn(
-        "rounded-lg border border-gray-800 bg-transparent p-2 shadow-md transition-all duration-200 cursor-pointer",
-        isHovered && "shadow-lg scale-105",
-        props.className
+        'transition-all duration-200 cursor-pointer hover:scale-105',
+        className
       )}
     >
-      {children}
+      <Image
+        src={imageSrc}
+        width={200}
+        height={200}
+        alt={`${variant} ${sourceImageType}`}
+      />
     </div>
   )
 }
