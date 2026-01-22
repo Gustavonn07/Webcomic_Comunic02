@@ -12,16 +12,16 @@ export default function Chapter2Page() {
   return (
     <div className="relative select-none w-[180vh] h-[100vw] lg:w-11/12 lg:h-full">
       <ComicImage
-        src="/chapter-2/Prancheta-1-full.png"
+        src="/chapter-2/Prancheta-6.png"
         alt="Painel 6"
         width={720}
         height={405}
         className={cn('w-[180vh] lg:w-full lg:h-full h-[300vw]')}
         onLoaded={() => setLoaded(true)}
       />
-      { loaded && (<><Balloon variant={VariantTypes.WAVE} className='absolute lg:bottom-94 lg:left-118.75 lg:scale-100 scale-65 bottom-[-160vw] left-[23.5vw]' />
-      <Balloon variant={VariantTypes.WALK} className='absolute lg:bottom-90 lg:left-230 lg:scale-100 scale-65 bottom-[-165vw] left-[52.5vw]' />
-      <Balloon variant={VariantTypes.SCREAM} className='absolute lg:bottom-68 lg:left-170 lg:scale-100 scale-65 bottom-[-171vw] left-[35vw]' /></>)}
+      { loaded && (<><Balloon variant={VariantTypes.WAVE} className='absolute bottom-[45vh] left-[48vw] scale-100 hover:scale-105 3xl:scale-125 hover:3xl:scale-150' />
+      <Balloon variant={VariantTypes.WALK} className='absolute bottom-[45vh] left-[32.5vw] scale-100 hover:scale-105 3xl:scale-125 hover:3xl:scale-150' />
+      <Balloon variant={VariantTypes.SCREAM} className='absolute bottom-[50vh] left-[60vw] scale-100 hover:scale-105 3xl:scale-125 hover:3xl:scale-150' /></>)}
     </div>
   )
 }
