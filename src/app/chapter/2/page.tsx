@@ -42,6 +42,7 @@ export default function Chapter2Page() {
               hover:scale-105
               3xl:scale-120
             "
+            handleClick={() => {router.replace('/chapter/4')}}
           />
 
           <Balloon
@@ -63,7 +64,6 @@ export default function Chapter2Page() {
               hover:scale-105
               3xl:scale-120
             "
-
             handleClick={() => {router.replace('/chapter/3')}}
           />
 
@@ -87,6 +87,7 @@ export default function Chapter2Page() {
               hover:scale-105
               3xl:scale-120
             "
+            handleClick={() => {router.replace('/chapter/5')}}
           />
       </>
     )}
