@@ -3,6 +3,7 @@ import '@/styles/global.css'
 import MDXWrapper from '@/components/MDXWrapper'
 import { cn } from '@/utils/cn'
 import { useOrientation } from '@/utils/hooks/useOrientation'
+import { GoBack } from '@/components/GoBack'
 
 export default function ChapterLayout({
   children,
@@ -23,6 +24,7 @@ export default function ChapterLayout({
         style={style}
         className={cn('flex w-full justify-center bg-primary', {'rotate-90 justify-start': isPortrait})}
       >
+        <GoBack />
         <MDXWrapper>{children}</MDXWrapper>
       </body>
     </html>
