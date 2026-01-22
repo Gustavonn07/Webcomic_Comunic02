@@ -9,12 +9,14 @@ interface ComicImageProps {
     alt: string
     width: number
     height: number
+    onLoaded?: () => void
     className?: string
 }
 
 export default function ComicImage({
     className,
     alt,
+    onLoaded,
     ...props
 }: ComicImageProps) {
 
@@ -26,7 +28,9 @@ export default function ComicImage({
                 {...props}
                 alt={alt}
                 width={1300}
-                className={cn("rounded-none", {'w-full h-screen': viewport.isXl, 'w-[100vh] h-[100vw]': viewport.isSm})}
+                onLoadingComplete={() => onLoaded?.()}
+                priority
+                className={cn("rounded-none", {'w-full h-screen': viewport.isXl, 'w-[100vh] h-[100vw]': viewport.isSm}, className)}
             />
         </figure>
     )
