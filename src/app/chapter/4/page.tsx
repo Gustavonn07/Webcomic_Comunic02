@@ -8,7 +8,7 @@ export default function Chapter4Page() {
   return (
     <div className="relative select-none max-w-450 md:w-11/12 md:h-full">
         <ComicImage
-            src="/chapter-4/cv-4.png"
+            src="/chapter-4/Prancheta-8-4.png"
             alt="Painel 8"
             width={720}
             height={405}

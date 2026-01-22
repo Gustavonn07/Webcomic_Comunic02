@@ -20,6 +20,7 @@ export default function ChapterLayout({
 
   return (
     <html>
+      <title>Turma do Volney | Webcomic</title>
       <body
         style={style}
         className={cn('flex w-full justify-center bg-primary', {'rotate-90 justify-start': isPortrait})}
