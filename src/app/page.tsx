@@ -7,6 +7,6 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace("/chapter/1");
+    router.replace("/chapter/2");
   }, [router]);
 }
