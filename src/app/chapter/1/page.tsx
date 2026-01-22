@@ -47,7 +47,7 @@ export default function Chapter1Page() {
     <div
       onClick={change}
       onContextMenu={reverse}
-      className="cursor-pointer select-none"
+      className="cursor-pointer select-none "
     >
       <ComicImage {...panels[panel]} />
     </div>

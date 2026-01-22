@@ -4,13 +4,15 @@ import Balloon from '@/components/Balloon'
 import ComicImage from '@/components/ComicImage'
 import { VariantTypes } from '@/types/BalloonVariants'
 import { cn } from '@/utils/cn'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 export default function Chapter2Page() {
+  const router = useRouter()
   const [loaded, setLoaded] = useState<boolean>(false)
 
   return (
-    <div className="relative select-none w-[180vh] h-[100vw] md:w-11/12 md:h-full">
+    <div className="relative select-none w-[180vh] h-[100vw] max-w-450 md:w-11/12 md:h-full">
       <ComicImage
         src="/chapter-2/Prancheta-6.png"
         alt="Painel 6"
@@ -61,6 +63,8 @@ export default function Chapter2Page() {
               hover:scale-105
               3xl:scale-120
             "
+
+            handleClick={() => {router.replace('/chapter/3')}}
           />
 
           <Balloon

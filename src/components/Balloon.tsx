@@ -7,9 +7,10 @@ import React, { useState } from 'react'
 
 interface BalloonProps extends React.HTMLAttributes<HTMLDivElement> {
   variant: VariantType
+  handleClick?: () => void
 }
 
-export default function Balloon({ variant, className, ...props }: BalloonProps) {
+export default function Balloon({ variant, className, handleClick, ...props }: BalloonProps) {
   const [sourceImageType, setSourceImageType] = useState<SourceType>(
     SourceTypes.DEFAULT
   )
@@ -19,7 +20,10 @@ export default function Balloon({ variant, className, ...props }: BalloonProps) 
   return (
     <div
       {...props}
-      onClick={() => setSourceImageType(SourceTypes.CLICK)}
+      onClick={() => {
+        setSourceImageType(SourceTypes.CLICK)
+        handleClick?.()
+      }}
       onMouseEnter={() => setSourceImageType(SourceTypes.HOVER)}
       onMouseLeave={() => setSourceImageType(SourceTypes.DEFAULT)}
       className={cn(
